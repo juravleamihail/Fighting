@@ -13,7 +13,7 @@ namespace Fighting
             int rundaContor = 1;
 
             Player player1 = new Player("Mitica", 100, 3);
-            Player player2 = new Player("Mircea", 110, 3);
+            Player player2 = new Player("Mircea", 100, 3);
             Arena fight = new Arena();
 
             System.Console.WriteLine("Doamnelor si domnilor in aceasta seara ii vom avea in arena pe cei 2 mari campioni: {0} si {1} ", player1.name, player2.name);
