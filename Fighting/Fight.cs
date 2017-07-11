@@ -30,7 +30,7 @@ namespace Fighting
                 else
                 {
 
-                    second.hp -= second.hp - (first.forta / second.protection);
+                    second.hp = second.hp - (first.forta / second.protection);
 
                 }     
 

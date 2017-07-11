@@ -28,7 +28,7 @@ namespace Fighting
                 System.Console.WriteLine("Runda cu nr: {0}", rundaContor);
                 fight.Fight(player1, player2);
 
-                if (player1.hp < 0 || player2.hp<0)
+                if (player1.hp < 0 || player2.hp < 0)
                     break;
 
                 System.Console.WriteLine("{0} : HP - {1} , Protection - {2} ", player1.name, player1.hp, player1.protection);
@@ -37,10 +37,14 @@ namespace Fighting
                 rundaContor++;
             }
 
+            
+
             if (player1.hp > 0)
                 System.Console.WriteLine("{0} a castigat", player1.name);
             else
                 System.Console.WriteLine("{0} a castigat", player2.name);
+
+            Console.ReadKey();
 
 
 

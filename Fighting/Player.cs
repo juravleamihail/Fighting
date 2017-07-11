@@ -28,7 +28,7 @@ namespace Fighting
         {
 
             Random NrRandom = new Random();
-            int RandomForta = NrRandom.Next(10, 30);
+            int RandomForta = NrRandom.Next(40, 80);
             return RandomForta;
         }
             }
