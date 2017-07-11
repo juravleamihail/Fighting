@@ -17,7 +17,7 @@ namespace Fighting
         public void Fight(Player first, Player second)
         {
             random = r.Next(0, 100);
-
+            
                 //determinam cine loveste
                 if (random < 50)
                 {

@@ -22,17 +22,25 @@ namespace Fighting
             Random r = new Random();
             Console.ReadLine();
 
-            while (player1.hp > 0 || player2.hp > 0)
+            while (true)
             {
                 Console.Clear();
                 System.Console.WriteLine("Runda cu nr: {0}", rundaContor);
-                // fight.Fight(player1, player2);
-                // fight.Fight(player2, player1);
+                fight.Fight(player1, player2);
+
+                if (player1.hp < 0 || player2.hp<0)
+                    break;
+
                 System.Console.WriteLine("{0} : HP - {1} , Protection - {2} ", player1.name, player1.hp, player1.protection);
                 System.Console.WriteLine("{0} : HP - {1} , Protection - {2} ", player2.name, player2.hp, player2.protection);
                 Console.ReadLine();
                 rundaContor++;
             }
+
+            if (player1.hp > 0)
+                System.Console.WriteLine("{0} a castigat", player1.name);
+            else
+                System.Console.WriteLine("{0} a castigat", player2.name);
 
 
 

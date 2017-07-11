@@ -20,16 +20,19 @@ namespace Fighting
             this.name = Name;
             this.hp = Hp;
             this.protection = Protection;
+            this.forta = RandomNumbers();
         }
 
-        int RandomNumbers(int RandomForta)
+
+        public int RandomNumbers()
         {
 
             Random NrRandom = new Random();
-            RandomForta = NrRandom.Next(10, 20);
+            int RandomForta = NrRandom.Next(10, 30);
             return RandomForta;
         }
+            }
 
 
     }
-}
+
