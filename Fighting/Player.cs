@@ -31,7 +31,11 @@ namespace Fighting
             int RandomForta = NrRandom.Next(40, 80);
             return RandomForta;
         }
-            }
+
+
+
+
+        }
 
 
     }
