@@ -22,14 +22,14 @@ namespace Fighting
             this.protection = Protection;
         }
 
-
-        public Player()
+        int RandomNumbers(int RandomForta)
         {
+
+            Random NrRandom = new Random();
+            RandomForta = NrRandom.Next(10, 20);
+            return RandomForta;
         }
 
-        public string getName()
-        {
-            return name;
-        }
+
     }
 }
