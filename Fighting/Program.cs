@@ -10,8 +10,10 @@ namespace Fighting
     {
         static void Main(string[] args)
         {
-            Player player1 = new Player("Mitica",100,3);
-            Player player2 = new Player("Mircea",110,3);
+            Player player1 = new Player("Mitica", 100, 3);
+            Player player2 = new Player("Mircea", 110, 3);
+
+           
 
         }
     }
