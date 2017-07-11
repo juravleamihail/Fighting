@@ -8,8 +8,6 @@ namespace Fighting
 {
     class Arena
     {
-        Player Winner;
-
         static Random r = new Random();
         Player first, second;
          public int randomCineAtaca;
