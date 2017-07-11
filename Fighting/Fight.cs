@@ -8,25 +8,30 @@ namespace Fighting
 {
     class Arena
     {
-        Player Winner;
+       
 
         static Random r = new Random();
         Player first, second;
-         public int randomCineAtaca;
+         public int random;
 
-        public void Fight(Player firstPlayer, Player secondPlayer)
+        public void Fight(Player primulJucator, Player AlDoileaJucator)
         {
-            randomCineAtaca = r.Next(0, 100);
+            random = r.Next(0, 100);
             
-                if (randomCineAtaca < 50)
+                //determinam cine loveste
+                if (random < 50)
                 {
 
-                    firstPlayer.hp = firstPlayer.hp - (secondPlayer.forta / firstPlayer.protection);
+                    primulJucator.hp = primulJucator.hp - (AlDoileaJucator.forta / primulJucator.protection);
+
                 }
+
 
                 else
                 {
-                    secondPlayer.hp = secondPlayer.hp - (firstPlayer.forta / secondPlayer.protection);
+
+                    AlDoileaJucator.hp = AlDoileaJucator.hp - (primulJucator.forta / AlDoileaJucator.protection);
+
                 }     
 
 }
