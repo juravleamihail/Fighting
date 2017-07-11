@@ -14,7 +14,7 @@ namespace Fighting
         Player first, second;
          public int random;
 
-        public void Fight(Player first, Player second)
+        public void Fight(Player primulJucator, Player AlDoileaJucator)
         {
             random = r.Next(0, 100);
             
@@ -22,7 +22,7 @@ namespace Fighting
                 if (random < 50)
                 {
 
-                    first.hp = first.hp - (second.forta / first.protection);
+                    primulJucator.hp = primulJucator.hp - (AlDoileaJucator.forta / primulJucator.protection);
 
                 }
 
@@ -30,7 +30,7 @@ namespace Fighting
                 else
                 {
 
-                    second.hp = second.hp - (first.forta / second.protection);
+                    AlDoileaJucator.hp = AlDoileaJucator.hp - (primulJucator.forta / AlDoileaJucator.protection);
 
                 }     
 
