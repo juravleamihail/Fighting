@@ -11,7 +11,6 @@ namespace Fighting
        
 
         static Random r = new Random();
-        Player first, second;
          public int random;
 
         public void Fight(Player primulJucator, Player AlDoileaJucator)
