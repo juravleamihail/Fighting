@@ -19,15 +19,13 @@ namespace Fighting
                 if (randomCineAtaca < 50)
                 {
 
-                    firstPlayer.hp = firstPlayer.hp - (secondPlayer.forta / firstPlayer.protection);
+                    firstPlayer.hp = firstPlayer.hp - (secondPlayer.forta / firstPlayer.protection); //1
                 }
 
-                //nu vreau schimbare
-                //vreau schimbare
 
                 else
                 {
-                    secondPlayer.hp = secondPlayer.hp - (firstPlayer.forta / secondPlayer.protection);
+                    secondPlayer.hp = secondPlayer.hp - (firstPlayer.forta / secondPlayer.protection);//2
                 }     
 
 }
