@@ -27,7 +27,7 @@ namespace Fighting
 
                 else
                 {
-                    secondPlayer.hp = secondPlayer.hp - (firstPlayer.forta / secondPlayer.protection); //1
+                    secondPlayer.hp = secondPlayer.hp - (firstPlayer.forta / secondPlayer.protection); //4
                 }     
 
 }
