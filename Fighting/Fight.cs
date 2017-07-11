@@ -9,7 +9,6 @@ namespace Fighting
     class Arena
     {
         static Random r = new Random();
-        Player first, second;
          public int randomCineAtaca;
 
         public void Fight(Player firstPlayer, Player secondPlayer)
