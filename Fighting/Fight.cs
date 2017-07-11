@@ -12,26 +12,21 @@ namespace Fighting
 
         static Random r = new Random();
         Player first, second;
-         public int random;
+         public int randomCineAtaca;
 
-        public void Fight(Player first, Player second)
+        public void Fight(Player firstPlayer, Player secondPlayer)
         {
-            random = r.Next(0, 100);
+            randomCineAtaca = r.Next(0, 100);
             
-                //determinam cine loveste
-                if (random < 50)
+                if (randomCineAtaca < 50)
                 {
 
-                    first.hp = first.hp - (second.forta / first.protection);
-
+                    firstPlayer.hp = firstPlayer.hp - (secondPlayer.forta / firstPlayer.protection);
                 }
-
 
                 else
                 {
-
-                    second.hp = second.hp - (first.forta / second.protection);
-
+                    secondPlayer.hp = secondPlayer.hp - (firstPlayer.forta / secondPlayer.protection);
                 }     
 
 }
