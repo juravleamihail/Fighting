@@ -8,72 +8,54 @@ namespace Fighting
 {
     class Arena
     {
-        private Player Winner;
-        public const int constanta = 50;
+        public const int SANSA = 50;
+        private int runda = 1;
         private static Random r = new Random();
+        private Player player1;
+        private Player player2;
 
-        public void ShowInitMessage(Player player1, Player player2)
+        public Arena(Player player1, Player player2)
         {
-            Console.WriteLine("Doamnelor si domnilor in aceasta seara ii vom avea in arena pe cei 2 mari campioni: {0} si {1} ", player1.name, player2.name);
+            this.player1 = player1;
+            this.player2 = player2;
         }
 
-        private void ShowPlayerAttributes(Player a)
+        public bool PlayersAreAlive()
         {
-            Console.WriteLine("{0} : HP - {1} , Protection - {2} ", a.name, a.hp, a.protection);
-        }
-
-        private void ShowWinner()
-        {
-            Console.WriteLine("Castigatorul este: {0}", Winner.name);
-        }
-
-
-        private bool IsDead(Player a, Player b)
-        {
-            if (a.hp < 0)
-            {
-                Winner = b;
-                return true;
-            }
-            if (b.hp <0)
-            {
-                Winner = a;
-                return true;
-            }
-            return false;
+            return player1.IsAlive() && player2.IsAlive();
         }
         
-        private void CalculateHpDamage(Player player,Player otherPlayer)
+        private void CalculateHpDamage(Player player, Player otherPlayer)
         {
-          player.hp-=(otherPlayer.forta/player.protection);
+            if (!player.IsAlive())
+                return;
+
+            player.Punch(otherPlayer.forta);
         }
       
-        public void Fight(Player firstPlayer, Player secondPlayer)
+        public void Fight()
         {
-            int rundaContor = 1;
+            int randomCineAtaca = r.Next(0, 100);
 
-            ShowInitMessage(firstPlayer, secondPlayer);
+            if (randomCineAtaca < SANSA)
+            {
+                CalculateHpDamage(player1, player2);
+            }
+            else
+            {
+                CalculateHpDamage(player2, player1);
+            }
+            runda++;
+        }
 
-            while (!IsDead(firstPlayer, secondPlayer))
-              {
-                Console.WriteLine("Runda cu nr: {0}", rundaContor);
-                ShowPlayerAttributes(firstPlayer);
-                ShowPlayerAttributes(secondPlayer);
+        public Player GetWinner()
+        {
+            return player1.IsAlive() && !player2.IsAlive() ? player1 : player2; //s
+        }
 
-                int randomCineAtaca = r.Next(0, 100);
-
-                if (randomCineAtaca < constanta)
-                {
-                    CalculateHpDamage(firstPlayer, secondPlayer);
-                }
-                else
-                {
-                    CalculateHpDamage(secondPlayer, firstPlayer);
-                }
-                rundaContor++;
-                Console.ReadLine();
-             }
-            ShowWinner();
+        public int GetRunda()
+        {
+            return runda;
         }
     }
 }
