@@ -8,22 +8,28 @@ namespace Fighting
 {
     class Arena
     {
-        private Player Winner;
+        public Player Winner;
         static Random r = new Random();
 
-        private bool IsDead(Player a)
+        private bool IsDead(Player a, Player b)
         {
             if (a.hp < 0)
             {
-                return true;
+                Winner = b;
             }
+            return true;
+            if (b.hp <0)
+            {
+                Winner = a;
+            }
+           return true;
         }
 
         public string Fight(Player firstPlayer, Player secondPlayer)
         {
             int randomCineAtaca = r.Next(0, 100);
 
-            while (!IsDead(firstPlayer) || !IsDead(secondPlayer))
+            while (!IsDead(firstPlayer, secondPlayer))
               {
                 //CR: magic number 50
                 if (randomCineAtaca < 50)

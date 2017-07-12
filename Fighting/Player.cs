@@ -1,4 +1,4 @@
-hj﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +8,10 @@ namespace Fighting
 {
     public class Player
     {
-        private string name;
-        private float hp;
-        private float protection;
-        private float forta;
+        public string name;
+        public float hp;
+        public float protection;
+        public float forta;
 
         public Player(string Name, float Hp, float Protection)
         {
