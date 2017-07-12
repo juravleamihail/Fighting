@@ -27,6 +27,6 @@ namespace Fighting
                 secondPlayer.hp = secondPlayer.hp - (firstPlayer.forta / secondPlayer.protection); 
             }
         }
-   }
+    }
 }
 
