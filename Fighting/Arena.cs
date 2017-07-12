@@ -9,7 +9,13 @@ namespace Fighting
     class Arena
     {
         public Player Winner;
+        public const int constanta = 50;
         static Random r = new Random();
+
+        private void getStats(Player a)
+        {
+            Console.WriteLine("{0} : HP - {1} , Protection - {2} ", a.name, a.hp, a.protection);
+        }
 
         private bool IsDead(Player a, Player b)
         {
@@ -25,19 +31,19 @@ namespace Fighting
            return true;
         }
         
-        static class Constants
-       {  
-        public const int IntervalfirstPlayer=50;
-       }
-
+      
         public string Fight(Player firstPlayer, Player secondPlayer)
         {
             int randomCineAtaca = r.Next(0, 100);
 
+            Console.WriteLine("Doamnelor si domnilor in aceasta seara ii vom avea in arena pe cei 2 mari campioni: {0} si {1} ", firstPlayer.name, secondPlayer.name);
+
             while (!IsDead(firstPlayer, secondPlayer))
               {
+                getStats(firstPlayer);
+                getStats(secondPlayer);
                 //CR: magic number 50
-                if (randomCineAtaca < IntervalfirstPlayer)
+                if (randomCineAtaca < constanta)
                 {
                     //CR:DRY :)
                     firstPlayer.hp = firstPlayer.hp - (secondPlayer.forta / firstPlayer.protection);
