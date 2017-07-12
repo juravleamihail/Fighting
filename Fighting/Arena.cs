@@ -8,14 +8,20 @@ namespace Fighting
 {
     class Arena
     {
-        public Player Winner;
+        private Player Winner;
         public const int constanta = 50;
         static Random r = new Random();
 
-        private void getStats(Player a)
+        public void ShowInitMessage(Player player1, Player player2)
+        {
+            Console.WriteLine("Doamnelor si domnilor in aceasta seara ii vom avea in arena pe cei 2 mari campioni: {0} si {1} ", player1.name, player2.name);
+        }
+
+        private void ShowPlayerAttributes(Player a)
         {
             Console.WriteLine("{0} : HP - {1} , Protection - {2} ", a.name, a.hp, a.protection);
         }
+
 
         private bool IsDead(Player a, Player b)
         {
@@ -38,14 +44,17 @@ namespace Fighting
       
         public string Fight(Player firstPlayer, Player secondPlayer)
         {
+            int rundaContor = 1;
+
             int randomCineAtaca = r.Next(0, 100);
 
-            Console.WriteLine("Doamnelor si domnilor in aceasta seara ii vom avea in arena pe cei 2 mari campioni: {0} si {1} ", firstPlayer.name, secondPlayer.name);
+            ShowInitMessage(firstPlayer, secondPlayer);
 
-            while (!IsDead(firstPlayer, secondPlayer))
+            while (IsDead(firstPlayer, secondPlayer))
               {
-                getStats(firstPlayer);
-                getStats(secondPlayer);
+                Console.WriteLine("Runda cu nr: {0}", rundaContor);
+                ShowPlayerAttributes(firstPlayer);
+                ShowPlayerAttributes(secondPlayer);
                 //CR: magic number 50
                 if (randomCineAtaca < constanta)
                 {
@@ -57,7 +66,11 @@ namespace Fighting
                     //CR:DRY :)
                     updateHpLevel(secondPlayer, firstPlayer);
                 }
+
+                rundaContor++;
+                Console.ReadLine();
              }
+
             return "Castigatorul este: " + Winner.name;
         }
     }
