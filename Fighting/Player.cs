@@ -6,37 +6,30 @@ using System.Threading.Tasks;
 
 namespace Fighting
 {
-    class Player
+    public class Player
     {
-
+        //CR:make this readonly
         public string name;
+        //CR:make this readonly
         public float hp;
+        //CR:make this readonly
         public float protection;
+        //CR:make this readonly
         public float forta;
 
         public Player(string Name, float Hp, float Protection)
         {
-
             this.name = Name;
             this.hp = Hp;
             this.protection = Protection;
-            this.forta = RandomNumbers();
+            SetForce();
         }
 
-
-        public int RandomNumbers()
+        private void SetForce()
         {
-
             Random NrRandom = new Random();
-            int RandomForta = NrRandom.Next(40, 80);
-            return RandomForta;
+            forta = NrRandom.Next(40, 80);
         }
-
-
-
-
-        }
-
-
-    }
+   }
+}
 
