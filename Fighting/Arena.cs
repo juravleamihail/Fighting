@@ -37,9 +37,9 @@ namespace Fighting
            return true;
         }
         
-        private void updateHpLevel(Player a, Player b)
+        private void CalculateHpDamage(Player player,Player otherPlayer)
         {
-            a.hp -= (b.forta / a.protection);
+          player.hp-=(otherPlayer.forta/player.protection);
         }
       
         public string Fight(Player firstPlayer, Player secondPlayer)
