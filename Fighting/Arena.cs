@@ -60,6 +60,6 @@ namespace Fighting
              }
             return "Castigatorul este: " + Winner.name;
         }
-   }
+    }
 }
 

@@ -26,6 +26,6 @@ namespace Fighting
             Random NrRandom = new Random();
             forta = NrRandom.Next(40, 80);
         }
-   }
+    }
 }
 
