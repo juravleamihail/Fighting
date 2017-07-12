@@ -10,7 +10,7 @@ namespace Fighting
     {
         private Player Winner;
         public const int constanta = 50;
-        static Random r = new Random();
+        private static Random r = new Random();
 
         public void ShowInitMessage(Player player1, Player player2)
         {
@@ -22,19 +22,26 @@ namespace Fighting
             Console.WriteLine("{0} : HP - {1} , Protection - {2} ", a.name, a.hp, a.protection);
         }
 
+        private void ShowWinner()
+        {
+            Console.WriteLine("Castigatorul este: {0}", Winner.name);
+        }
+
 
         private bool IsDead(Player a, Player b)
         {
             if (a.hp < 0)
             {
                 Winner = b;
+                return true;
             }
-            return true;
+            
             if (b.hp <0)
             {
                 Winner = a;
+                return true;
             }
-           return true;
+            return false;
         }
         
         private void CalculateHpDamage(Player player,Player otherPlayer)
@@ -42,28 +49,26 @@ namespace Fighting
           player.hp-=(otherPlayer.forta/player.protection);
         }
       
-        public string Fight(Player firstPlayer, Player secondPlayer)
+        public void Fight(Player firstPlayer, Player secondPlayer)
         {
             int rundaContor = 1;
 
-            int randomCineAtaca = r.Next(0, 100);
-
             ShowInitMessage(firstPlayer, secondPlayer);
 
-            while (IsDead(firstPlayer, secondPlayer))
+            while (!IsDead(firstPlayer, secondPlayer))
               {
                 Console.WriteLine("Runda cu nr: {0}", rundaContor);
                 ShowPlayerAttributes(firstPlayer);
                 ShowPlayerAttributes(secondPlayer);
-                //CR: magic number 50
+
+                int randomCineAtaca = r.Next(0, 100);
+
                 if (randomCineAtaca < constanta)
                 {
-                    //CR:DRY :)
                     CalculateHpDamage(firstPlayer, secondPlayer);
                 }
                 else
                 {
-                    //CR:DRY :)
                     CalculateHpDamage(secondPlayer, firstPlayer);
                 }
 
@@ -71,7 +76,7 @@ namespace Fighting
                 Console.ReadLine();
              }
 
-            return "Castigatorul este: " + Winner.name;
+            ShowWinner();
         }
     }
 }
