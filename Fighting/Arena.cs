@@ -59,12 +59,12 @@ namespace Fighting
                 if (randomCineAtaca < constanta)
                 {
                     //CR:DRY :)
-                    updateHpLevel(firstPlayer, secondPlayer);
+                    CalculateHpDamage(firstPlayer, secondPlayer);
                 }
                 else
                 {
                     //CR:DRY :)
-                    updateHpLevel(secondPlayer, firstPlayer);
+                    CalculateHpDamage(secondPlayer, firstPlayer);
                 }
 
                 rundaContor++;
