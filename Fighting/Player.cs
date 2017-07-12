@@ -8,13 +8,9 @@ namespace Fighting
 {
     public class Player
     {
-        //CR:make this readonly
         public string name;
-        //CR:make this readonly
         public float hp;
-        //CR:make this readonly
         public float protection;
-        //CR:make this readonly
         public float forta;
 
         public Player(string Name, float Hp, float Protection)

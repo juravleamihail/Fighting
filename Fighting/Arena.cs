@@ -8,24 +8,54 @@ namespace Fighting
 {
     class Arena
     {
+        public Player Winner;
+        public const int constanta = 50;
         static Random r = new Random();
 
-        public void Fight(Player firstPlayer, Player secondPlayer)
+        private void getStats(Player a)
+        {
+            Console.WriteLine("{0} : HP - {1} , Protection - {2} ", a.name, a.hp, a.protection);
+        }
+
+        private bool IsDead(Player a, Player b)
+        {
+            if (a.hp < 0)
+            {
+                Winner = b;
+            }
+            return true;
+            if (b.hp <0)
+            {
+                Winner = a;
+            }
+           return true;
+        }
+        
+      
+        public string Fight(Player firstPlayer, Player secondPlayer)
         {
             int randomCineAtaca = r.Next(0, 100);
-            
-            //CR: magic number 50
-            if (randomCineAtaca < 50)
-            {
-                //CR:DRY :)
-                firstPlayer.hp = firstPlayer.hp - (secondPlayer.forta / firstPlayer.protection); 
-            }
 
-            else
-            {
-                //CR:DRY :)
-                secondPlayer.hp = secondPlayer.hp - (firstPlayer.forta / secondPlayer.protection); 
-            }
+            Console.WriteLine("Doamnelor si domnilor in aceasta seara ii vom avea in arena pe cei 2 mari campioni: {0} si {1} ", firstPlayer.name, secondPlayer.name);
+
+            while (!IsDead(firstPlayer, secondPlayer))
+              {
+                getStats(firstPlayer);
+                getStats(secondPlayer);
+                //CR: magic number 50
+                if (randomCineAtaca < constanta)
+                {
+                    //CR:DRY :)
+                    firstPlayer.hp = firstPlayer.hp - (secondPlayer.forta / firstPlayer.protection);
+                }
+
+                else
+                {
+                    //CR:DRY :)
+                    secondPlayer.hp = secondPlayer.hp - (firstPlayer.forta / secondPlayer.protection);
+                }
+             }
+            return "Castigatorul este: " + Winner.name;
         }
     }
 }
