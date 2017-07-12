@@ -18,6 +18,11 @@ namespace Fighting
                 return true;
             }
         }
+        
+        static class Constants
+       {  
+        public const int IntervalfirstPlayer=50;
+       }
 
         public string Fight(Player firstPlayer, Player secondPlayer)
         {
@@ -26,7 +31,7 @@ namespace Fighting
             while (!IsDead(firstPlayer) || !IsDead(secondPlayer))
               {
                 //CR: magic number 50
-                if (randomCineAtaca < 50)
+                if (randomCineAtaca < IntervalfirstPlayer)
                 {
                     //CR:DRY :)
                     firstPlayer.hp = firstPlayer.hp - (secondPlayer.forta / firstPlayer.protection);
