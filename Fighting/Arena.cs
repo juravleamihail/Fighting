@@ -31,6 +31,10 @@ namespace Fighting
            return true;
         }
         
+        private void updateHpLevel(Player a, Player b)
+        {
+            a.hp -= (b.forta / a.protection);
+        }
       
         public string Fight(Player firstPlayer, Player secondPlayer)
         {
@@ -46,13 +50,12 @@ namespace Fighting
                 if (randomCineAtaca < constanta)
                 {
                     //CR:DRY :)
-                    firstPlayer.hp = firstPlayer.hp - (secondPlayer.forta / firstPlayer.protection);
+                    updateHpLevel(firstPlayer, secondPlayer);
                 }
-
                 else
                 {
                     //CR:DRY :)
-                    secondPlayer.hp = secondPlayer.hp - (firstPlayer.forta / secondPlayer.protection);
+                    updateHpLevel(secondPlayer, firstPlayer);
                 }
              }
             return "Castigatorul este: " + Winner.name;
