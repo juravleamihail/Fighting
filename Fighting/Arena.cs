@@ -11,7 +11,7 @@ namespace Fighting
         public Player Winner;
         public const int constanta = 50;
         static Random r = new Random();
-
+    
         private void getStats(Player a)
         {
             Console.WriteLine("{0} : HP - {1} , Protection - {2} ", a.name, a.hp, a.protection);
@@ -31,9 +31,9 @@ namespace Fighting
            return true;
         }
         
-        private void updateHpLevel(Player a, Player b)
+        private void CalculateHpDamage(Player player,Player otherPlayer)
         {
-            a.hp -= (b.forta / a.protection);
+          player.hp-=(otherPlayer.forta/player.protection);
         }
       
         public string Fight(Player firstPlayer, Player secondPlayer)
