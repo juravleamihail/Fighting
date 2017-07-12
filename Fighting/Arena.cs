@@ -35,7 +35,6 @@ namespace Fighting
                 Winner = b;
                 return true;
             }
-            
             if (b.hp <0)
             {
                 Winner = a;
@@ -71,11 +70,9 @@ namespace Fighting
                 {
                     CalculateHpDamage(secondPlayer, firstPlayer);
                 }
-
                 rundaContor++;
                 Console.ReadLine();
              }
-
             ShowWinner();
         }
     }
