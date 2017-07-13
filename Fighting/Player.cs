@@ -27,15 +27,12 @@ namespace Fighting
             forta = NrRandom.Next(40, 80);
         }
 
-        public void Punch(float force)
+        internal void Punch(Player enemy)
         {
-            hp -= (force / protection);
-
-            if (hp <= 0)
-            {
-                forta = 0;
+            if (!IsAlive() || !enemy.IsAlive())
                 return;
-            }
+
+            enemy.hp -= (forta / enemy.protection);            
         }
 
         public bool IsAlive()

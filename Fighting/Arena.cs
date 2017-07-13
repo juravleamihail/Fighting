@@ -24,14 +24,6 @@ namespace Fighting
         {
             return player1.IsAlive() && player2.IsAlive();
         }
-        
-        private void CalculateHpDamage(Player player, Player otherPlayer)
-        {
-            if (!player.IsAlive())
-                return;
-
-            player.Punch(otherPlayer.forta);
-        }
       
         public void Fight()
         {
@@ -39,17 +31,20 @@ namespace Fighting
 
             if (randomCineAtaca < SANSA)
             {
-                CalculateHpDamage(player1, player2);
+                player1.Punch(player2);
             }
             else
             {
-                CalculateHpDamage(player2, player1);
+                player2.Punch(player1);
             }
             runda++;
         }
 
         public Player GetWinner()
         {
+            if (PlayersAreAlive())
+                return null;
+
             return player1.IsAlive() && !player2.IsAlive() ? player1 : player2; //s
         }
 
