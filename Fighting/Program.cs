@@ -11,19 +11,21 @@ namespace Fighting
     {
         static Player player1, player2;
         static Arena arena;
+        static Display display;
 
         static void InitGame()
         {
             player1 = new Player("Mitica", 100, 3);
             player2 = new Player("Mircea", 100, 3);
             arena = new Arena(player1, player2);
+            display = new Display();
         }
 
         static void Main(string[] args)
         {
             InitGame();
 
-            ShowInitMessage();
+            display.ShowInitMessage(player1,player2);
 
             Console.ReadKey();
             
@@ -40,19 +42,8 @@ namespace Fighting
 
             Console.ReadLine();
 
-            ShowWinner();
+            display.ShowWinner(arena);
         }
-
-        static private void ShowInitMessage()
-        {
-            Console.WriteLine("Doamnelor si domnilor in aceasta seara ii vom avea in arena pe cei 2 mari campioni: {0} si {1} ", player1.GetName(), player2.GetName());
-        }
-
-        static private void ShowWinner()
-        {
-            Console.WriteLine("Castigatorul este: {0}", arena.GetWinner().GetName());
-        }
-
     }
 }
 
