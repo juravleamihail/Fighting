@@ -43,6 +43,8 @@ namespace Fighting
             Console.ReadLine();
 
             display.ShowWinner(arena);
+
+            Console.ReadKey();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Fighting
     public class Player
     {
         private string name;
+        public string Name { get { return name; } set { name = value; } }
         private float hp;
         private float protection;
         public float forta;
@@ -45,10 +46,10 @@ namespace Fighting
             return string.Format("{0} : HP - {1} , Protection - {2} ", name, hp, protection);
         }
 
-        public string GetName()
-        {
-            return name;
-        }
+        //public string GetName()
+        //{
+        //    return name;
+        //}
 
         public float GetProtection()
         {
